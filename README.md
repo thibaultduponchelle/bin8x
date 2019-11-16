@@ -38,7 +38,7 @@ Here it is, the new bin8x squisher for unix, I've been busy and made a few updat
 - devpac compatibility (bin8x binfile-with-no-extension)
 - TI82 CrASH compatibility.
 - quite a few options to ensure usefulness:
-
+```
 -o  or -output      : specific outputfile ([binfile].8?p if none given.
 -n  or -name        : specific filename on the calculator ([binfile] if
                         none given.
@@ -54,43 +54,43 @@ Here it is, the new bin8x squisher for unix, I've been busy and made a few updat
                         that, but you might...).
 -v  or -verbose     : provide a lot of informations while running
 -h  or -help        : display help screen.
-
+```
 syntax:
 
-bin8x binfile [-options]
+`bin8x binfile [-options]`
 
  or
 
-bin8x -i infile -o outfile -n name [options]
+`bin8x -i infile -o outfile -n name [options]`
 
 or 
 
-bin8x binfile output.8xx
+`bin8x binfile output.8xx`
 
 or 
 
-bin8x output.8xx binfile
+`bin8x output.8xx binfile`
 
 or 
 
-bin8x output.8xx
+`bin8x output.8xx`
 
 or 
 
-bin8x output
+`bin8x output`
 (use 83p as default)
 
 or 
 
-bin8x binfile
+`bin8x binfile`
 
 or 
 
-bin8x [options] binfile [options] output.8xx [options]
+`bin8x [options] binfile [options] output.8xx [options]`
 
 or 
 
-bin8x [options] output.8xx [options] binfile [options]
+`bin8x [options] output.8xx [options] binfile [options]`
 
 
 Where binfile/infile	: the binary output from your assembler, binfile is 
@@ -109,7 +109,7 @@ BTW. It's open source, so don't hesitate to send me updates or bug fixes.
 
 Compiling the source for your unix:
 
-with gcc use: gcc bin8x.c -o bin8x
+with gcc use: `gcc bin8x.c -o bin8x`
 
 ## My improvements 
 ### Introduction
