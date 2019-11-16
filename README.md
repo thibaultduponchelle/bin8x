@@ -94,10 +94,10 @@ or
 
 
 Where binfile/infile	: the binary output from your assembler, binfile is 
-		          in 8.3 dos format,
+		          in `8.3 dos format`,
 			  
 Or some other ways...
-You should not use options as -qlv but always use -q -v -l
+You should not use options as `-qlv` but always use `-q -v -l`
 It could be corrected in the future, but currently it's not working.
 
 I hope all of you have use for this program.
@@ -122,9 +122,9 @@ And the most important thing is there's now an *unsquisher inside* (for asm nosh
 
 ### New :
 - Add a completely new command line parser using getopt :
-There's a lot of new ways to use bin8x and lesser possibility to crash it
-You can use -o alone, -i alone, or do not use options.
-You can give arguments in the order you want, bin8x detect wich one is output/input.
+There's a lot of new ways to use `bin8x` and lesser possibility to crash it
+You can use `-o` alone, `-i` alone, or do not use options.
+You can give arguments in the order you want, `bin8x` detect wich one is output/input.
 If no extension given and no (-2 -3 -p), it uses 83p by default.
 
 - Add a new option to unsquish a program :
