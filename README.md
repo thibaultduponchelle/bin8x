@@ -29,7 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 ## Additional thanks
 
-Thanks to *Solignac Julien* for optimizing the code and making it look more 
+Thanks to **Solignac Julien** for optimizing the code and making it look more 
 like devpac, and for the autodetection of filetypes.  
 
 
