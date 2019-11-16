@@ -51,7 +51,7 @@ Here it is, the new `bin8x` packer for unix, I've been busy and made a few updat
 -p  or -ti83plus    : specify ti-83 plus file.
 -l  or -lowercase   : keep calculator name lowercase
 -x  or -executable  : force  "TIOS-executable" bytes to the TI-83 Plus 
--q  or -unsquish     use it for regular 83 without shell program.
+-q  or -unsquish    : use it for regular 83 without shell program.
 -u  or -unprotected : generate unprotected files (I don't see any use for
                         that, but you might...).
 -v  or -verbose     : provide a lot of informations while running
