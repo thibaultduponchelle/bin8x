@@ -148,6 +148,6 @@ Sorry for this issue, I will continue to fix bugs if possible in the futur.
 Have fun with bin8x xD
 
 ## TODO
-- Fix potential issue reported by *stefan lennartsson* with *null padding* and `-n` option
+- Fix potential issue reported by **Stefan Lennartsson** with null padding and `-n` option
 
 
