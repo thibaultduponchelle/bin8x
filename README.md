@@ -1,7 +1,6 @@
 # Bin8x IMPROVED v2.0 for Linux,*BSD,...
 
-This is the github repository of [bin8x_improved](https://www.ticalc.org/archives/files/fileinfo/445/44595.html) published on ticalc.
-(it is an improved version of [bin8x](https://www.ticalc.org/archives/files/fileinfo/345/34554.html))
+This is the github repository of [bin8x_improved](https://www.ticalc.org/archives/files/fileinfo/445/44595.html) published on [ticalc](https://www.ticalc.org/) (it is an improved version of [bin8x](https://www.ticalc.org/archives/files/fileinfo/345/34554.html))
 
 ## Copyright notice 
 ```
