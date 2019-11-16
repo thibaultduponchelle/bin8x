@@ -1,9 +1,15 @@
-Bin8x IMPROVED v2.0 for Linux,*BSD,...
+# Bin8x IMPROVED v2.0 for Linux,*BSD,...
+
+## Copyright notice 
+```
 Copyright (C) 2001 Peter Martijn Kuipers <central@hyperfield.com>
 Copyright (C) 2003 Tijl Coosemans <tijl@ulyssis.org>
 Copyright (C) 2004 Guillaume Hoffmann <guillaume.h@ifrance.com>
 Copyright (C) 2011 thibault Duponchelle <t.duponchelle@gmail.com> (the improved version)
+```
 
+## Licence
+```
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or
@@ -17,10 +23,15 @@ GNU Library General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+```
+
+## Additional thanks
 
 Thanks to: Solignac Julien for optimizing the code and making it look more 
 like devpac, and for the autodetection of filetypes.  
 
+
+## Description
 
 Here it is, the new bin8x squisher for unix, I've been busy and made a few updates:
 
@@ -100,7 +111,8 @@ Compiling the source for your unix:
 
 with gcc use: gcc bin8x.c -o bin8x
 
->>>>>>
+## My improvements 
+### Introduction
 Thibault Duponchelle (31/03/2011) : 
 
 bin8x is the real unix-like calc var converter...
@@ -112,7 +124,7 @@ Now, if you're Linux user, there's no reason to do not use bin8x !!!
 And the most important thing is there's a unsquisher inside (for asm noshell ti83).
 
 
-New :
+### New :
 - Add a completely new command line parser using getopt :
 There's a lot of new ways to use bin8x and lesser possibility to crash it
 You can use -o alone, -i alone, or do not use options.
@@ -134,5 +146,7 @@ I've added some script to test the tool but you don't need it. Just ignore them 
 I've found and fixed a little bug (8xp recognition was failing sometimes).
 Sorry for this issue, I will continue to fix bugs if possible in the futur.
 
+### Conclusion
 Have fun with bin8x xD
-<<<<<<
+
+
