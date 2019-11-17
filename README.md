@@ -37,8 +37,8 @@ like devpac, and for the autodetection of filetypes.
 
 Here it is, the new `bin8x` packer for unix, I've been busy and made a few updates:
 
-- devpac compatibility (bin8x binfile-with-no-extension)
-- TI82 CrASH compatibility.
+- **devpac** compatibility (bin8x binfile-with-no-extension)
+- **TI82 CrASH** compatibility.
 - quite a few options to ensure usefulness:
 ```
 -o  or -output      : specific outputfile ([binfile].8?p if none given.
@@ -51,7 +51,7 @@ Here it is, the new `bin8x` packer for unix, I've been busy and made a few updat
 -p  or -ti83plus    : specify ti-83 plus file.
 -l  or -lowercase   : keep calculator name lowercase
 -x  or -executable  : force  "TIOS-executable" bytes to the TI-83 Plus 
--q  or -unsquish    : use it for regular 83 without shell program.
+-q  or -unsquish    : unsquish program (target regular 83 noshell)
 -u  or -unprotected : generate unprotected files (I don't see any use for
                         that, but you might...).
 -v  or -verbose     : provide a lot of informations while running
