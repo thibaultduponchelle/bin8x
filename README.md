@@ -1,5 +1,9 @@
 # Bin8x IMPROVED v2.0 for Linux,*BSD,...
 
+## What is bin8x 
+`bin8x` is a binary packer for the *ti8x* (ti82, ti83, ti83+, ti84+ etc...) serie.  The goal of this tool is to convert pure compiled code to a ti8x program by adding header, footer, checksum and so on.
+
+## About this repository
 This is the github repository of [bin8x_improved](https://www.ticalc.org/archives/files/fileinfo/445/44595.html) published on [ticalc](https://www.ticalc.org/) (it is an improved version of [bin8x](https://www.ticalc.org/archives/files/fileinfo/345/34554.html))
 
 ## Copyright notice 
@@ -28,13 +32,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 ```
 
 ## Additional thanks
-
 Thanks to **Solignac Julien** for optimizing the code and making it look more 
 like devpac, and for the autodetection of filetypes.  
 
-
 ## Description
-
 Here it is, the new `bin8x` packer for unix, I've been busy and made a few updates:
 
 - **devpac** compatibility (bin8x binfile-with-no-extension)
@@ -121,8 +122,7 @@ Now, if you're Linux user, there's no reason to do not use `bin8x` !!!
 
 And the most important thing is there's now an *unsquisher inside* (for asm noshell ti83).
 
-
-### New :
+### New
 - Add a completely new command line parser using getopt :
 There's a lot of new ways to use `bin8x` and lesser possibility to crash it
 You can use `-o` alone, `-i` alone, or do not use options.
@@ -149,5 +149,3 @@ Have fun with bin8x xD
 
 ## TODO
 - Fix potential issue reported by **Stefan Lennartsson** with null padding and `-n` option
-
-
