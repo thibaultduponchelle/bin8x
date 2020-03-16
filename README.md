@@ -138,10 +138,8 @@ This is really useful for *TI83 regular* designed to be used without shell (with
 But the program will be really *bigger* (2 times bigger) and *slower*.
 
 #### By default, convert to uppercase the calc name
-There's no reason to keep lowercase because the program will not launch on calc
-But you can specify to keep lowercase (`-l` or `-lowercase`)
+There's no reason to keep lowercase because the program will not launch on calc but you can specify to keep lowercase (`-l` or `-lowercase`)
 
-- Some (a lot of?) other improvements... 
 
 #### Tests 
 I've added some script to test the tool but you don't need it. Just ignore them :)
