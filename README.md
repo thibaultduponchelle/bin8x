@@ -100,10 +100,12 @@ Where binfile/infile	: the binary output from your assembler, binfile is
 		          in `8.3 dos format`,
 			  
 Or some other ways...
-You should not use options as `-qlv` but always use `-q -v -l`
+
+You should not use options as `-qlv` but always use `-q -v -l`.
 It could be corrected in the future, but currently it's not working.
 
 I hope all of you have use for this program.
+
 BTW. It's open source, so don't hesitate to send me updates or bug fixes.
 
 
@@ -113,35 +115,40 @@ Compiling the source for your unix with gcc use: `gcc bin8x.c -o bin8x`
 ### Introduction
 Thibault Duponchelle (31/03/2011) : 
 
-`bin8x` is the real unix-like calc var converter...
-But it was not really user friendly...
-Some functionnality are very cool (unprotect, print the size of output etc...)
-but I always had prefered bin2var because it was very simple and works well.
-That's why I decided to improve `bin8`x to make it better for me (maybe for others too?!)
-Now, if you're Linux user, there's no reason to do not use `bin8x` !!! 
+`bin8x` is the real unix-like calc var converter... but it was not really user friendly...
 
-And the most important thing is there's now an *unsquisher inside* (for asm noshell ti83).
+Some functionnality are very cool (unprotect, print the size of output etc...) but I always had prefered bin2var because it was very simple and works well.
+
+That's why I decided to improve `bin8x` to make it better for me (and for you).
+
+If you're Linux user, there's no reason to do not use `bin8x` !!! 
+
+And the most important thing rigth now : there's now an *unsquisher inside* (for asm noshell ti83).
 
 ### New
-- Add a completely new command line parser using getopt :
-There's a lot of new ways to use `bin8x` and lesser possibility to crash it
+
+#### Add a completely new command line parser using getopt
+There's a lot of new ways to use `bin8x` and lesser possibility to crash it.
 You can use `-o` alone, `-i` alone, or do not use options.
 You can give arguments in the order you want, `bin8x` detect wich one is output/input.
 If no extension given and no (-2 -3 -p), it uses 83p by default.
 
-- Add a new option to unsquish a program :
+#### Add a new option to unsquish a program
 This is really useful for *TI83 regular* designed to be used without shell (with `Send(9pgrmNAME` )
 But the program will be really *bigger* (2 times bigger) and *slower*.
 
-- By default, convert to uppercase the calc name.
+#### By default, convert to uppercase the calc name
 There's no reason to keep lowercase because the program will not launch on calc
 But you can specify to keep lowercase (`-l` or `-lowercase`)
 
 - Some (a lot of?) other improvements... 
 
-- I've added some script to test the tool but you don't need it. Just ignore them :)
+#### Tests 
+I've added some script to test the tool but you don't need it. Just ignore them :)
 
-- I've found and fixed a little bug (8xp recognition was failing sometimes). 
+
+#### Bugfix
+I've found and fixed a little bug (8xp recognition was failing sometimes). 
 Sorry for this issue, I will continue to fix bugs if possible in the futur.
 
 ### Conclusion
