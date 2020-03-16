@@ -237,7 +237,7 @@ int getargs(int argc, char *argv[], CmdLineArgs * cmdline)
 
 
 	default:
-	    fprintf(stderr, "Erreur d'option\n");
+	    fprintf(stderr, "Problem with option parsing\n");
 	    help(argv[0], -1);
 	    break;
 	}
