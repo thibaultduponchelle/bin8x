@@ -1,5 +1,7 @@
 # Bin8x IMPROVED v2.0 for Linux,*BSD,...
 
+This is the source of what you can find on [ticalc bin8x_improved](https://www.ticalc.org/archives/files/fileinfo/445/44595.html)
+
 ## What is bin8x 
 `bin8x` is a binary packer for the *ti8x* (ti82, ti83, ti83+, ti84+ etc...) serie.  The goal of this tool is to convert pure compiled code to a ti8x program by adding header, footer, checksum and so on.
 
