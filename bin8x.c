@@ -7,25 +7,25 @@
   * it under the terms of the GNU General Public License as published by
   * the Free Software Foundation; either version 2 of the License, or
   * (at your option) any later version.
-  * 
+  *
   * This program is distributed in the hope that it will be useful,
   * but WITHOUT ANY WARRANTY; without even the implied warranty of
   * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   * GNU Library General Public License for more details.
-  * 
+  *
   * You should have received a copy of the GNU General Public License
   * along with this program; if not, write to the Free Software
   * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-  * 
-  * Thanks to: Solignac Julien for optimizing the code and making it look more 
-  * like devpac.  
+  *
+  * Thanks to: Solignac Julien for optimizing the code and making it look more
+  * like devpac.
   *
   *
   * Compiling the source for your unix:
   * with gcc use: gcc bin8x.c -o bin8x
   */
-  
-  
+
+
 /* TI-83 program format :
  Byte(s) (in decimal)             What It Contains
   ------------------------------------------------------
@@ -36,12 +36,12 @@
   56-57                     [11][0]
   58-59                     Length of data (word)
   60                        program type : 5 (6 for protected)
-  61-68                     program name (0-filled) 
+  61-68                     program name (0-filled)
   69-70                     Length of data
   71-72                     Length of program
   73-(n-2)                  Actual Program
   (n-1)-n 	            Checksum
- 
+
  * All the length are one word, with Least Significant Byte first
  * Length of program = the length of all the program data (incredible !)
  * Length of data = length of program + 2 (cause it is length of the datablock,
@@ -50,7 +50,7 @@
  * The checksum is one word, the sum of all the bytes from byte 55 to
    the last byte before the checksum, modulo 2^16-1 to fit in one word
 */
-  
+
  /* TI-82 program format :
  Byte(s) (in decimal)             What It Contains
   ------------------------------------------------------
@@ -111,7 +111,7 @@ typedef struct CmdLineArgs {
     short int	    unsquish;		/* Unquish a ti83 program (no shell only) */
     short int	    verbose;		/* Be verbose */
     short int	    help;		/* Be verbose */
-    int		    flag; 		/* A flag to know if at least one argument is parsed */ 
+    int		    flag; 		/* A flag to know if at least one argument is parsed */
 } CmdLineArgs;
 
 /* This struct is used by getopt_long_only for argument parsing */
@@ -137,7 +137,7 @@ unsigned char   LL(unsigned short int);
 unsigned char   HH(unsigned short int);
 void            help(char *name, int ret);	/* Print help */
 int             getargs(int argc, char *argv[], CmdLineArgs * cmdline); /* Command Line Parsing */
-void            cmdline_init(CmdLineArgs * cmdline);	 /* Set all variable to null or default values */ 
+void            cmdline_init(CmdLineArgs * cmdline);	 /* Set all variable to null or default values */
 void            cmdline_finalize(CmdLineArgs * cmdline); /* Some after parsing tasks */
 void print_cmdline(CmdLineArgs *cmdline); /* Some debug */
 int unsquish(char* filename); /* Unsquish a programm for ti83 regular no shell */
@@ -253,7 +253,7 @@ int getargs(int argc, char *argv[], CmdLineArgs * cmdline)
 
 
     /* If no option use the twice parameter */
-    if((!cmdline->input) && (cmdline->flag == 0) && (argc == 3)) { 
+    if((!cmdline->input) && (cmdline->flag == 0) && (argc == 3)) {
 	autoselect_ext(cmdline, argv[1]);
 	autoselect_ext(cmdline, argv[2]);
     /* Use parameter as input (and output) */
@@ -261,8 +261,8 @@ int getargs(int argc, char *argv[], CmdLineArgs * cmdline)
 	cmdline->input = (char*) malloc (strlen(argv[1]) * sizeof(char) + 1);
 	strcpy(cmdline->input, argv[1]);
     }
-     
-    if((!cmdline->input) && (!cmdline->output)) 
+   
+    if((!cmdline->input) && (!cmdline->output))
 	help(argv[0], -1);
 
 	
@@ -277,9 +277,9 @@ void autoselect_ext(CmdLineArgs* cmdline, char* filename) {
 	memcpy(arg, filename, strlen(filename));
 	char* p = (char*)strrchr(arg, '.'); /* Get a pointer on the extension (null if no extension) */
 	if(p) {
-		/* Is it a destination file? */ 
+		/* Is it a destination file? */
 		if((strcmp(p, ext82) == 0) ||(strcmp(p, ext83) == 0) || (strcmp(p, ext8x) == 0)) {
-			if(strcmp(p, ext82) == 0) { 
+			if(strcmp(p, ext82) == 0) {
 				cmdline->destcalc_id = EXT_82P;
 			} else if(strcmp(p, ext83) == 0) {
 				cmdline->destcalc_id = EXT_83P;
@@ -309,12 +309,12 @@ void print_cmdline(CmdLineArgs *cmdline) {
 
 /* #1# Copy the input into the output if needed
  * #2# Copy the output into the input if needed
- * #3# Detect extension (may be redundancy) 
- * #4# Use default destcalc_id if needed 
+ * #3# Detect extension (may be redundancy)
+ * #4# Use default destcalc_id if needed
  * #5# Copy the calcname if needed
  * #6# Keep only the first 8 char for the name
  * #7# Use uppercase for calcname if needed
- * #8# Add an special char for crash 
+ * #8# Add an special char for crash
  */	
 void cmdline_finalize(CmdLineArgs * cmdline)
 {
@@ -335,12 +335,12 @@ void cmdline_finalize(CmdLineArgs * cmdline)
 		cmdline->input = (char*) malloc(strlen(cmdline->output) * sizeof(char) + 1);
 		strcpy(cmdline->input, cmdline->output);
 		char* p = (char*)strrchr(cmdline->input, '.'); /* Get a pointer on the extension (null if no extension) */
-		if(p) 
+		if(p)
 			strcpy(p, ".bin");
 			
 	}
     }
-    
+   
     /* #3# Use extension to define destcalc_id then drop extension (because it could be false!) */
     char* p = (char*)strrchr(cmdline->output, '.');
     if(p) {
@@ -348,11 +348,15 @@ void cmdline_finalize(CmdLineArgs * cmdline)
 	if(strcmp(p, ext82) == 0) cmdline->destcalc_id = EXT_82P;
 	if(strcmp(p, ext83) == 0) cmdline->destcalc_id = EXT_83P;
 	if(strcmp(p, ext8x) == 0) cmdline->destcalc_id = EXT_8XP;
-	if(p) strcpy(p, "\0");
+	if(p) {
+		strcpy(p, "\0");
+	}
     }
+
+
 	
     /* #4# If no extension is defined, use 83p as default */
-    if(cmdline->destcalc_id == EXT_NULL) 
+    if(cmdline->destcalc_id == EXT_NULL)
 	cmdline->destcalc_id = EXT_83P;
 
     /* #5# Copy the name if needed */
@@ -360,10 +364,14 @@ void cmdline_finalize(CmdLineArgs * cmdline)
 	    cmdline->name = (char*) malloc(sizeof(char) * 8);
 	    memset(cmdline->name, '\0', 8);
 	    for(i = 0; i<8; i++) {
-		cmdline->name[i] = cmdline->output[i]; 
+		cmdline->name[i] = cmdline->output[i];
+		/*if(cmdline->output[i] == '\0') {
+		    printf("break\n");
+		    break;
+		}*/
 	    }
     }
-    
+   
     /* #6# If calcname is too long, drop the end */	
     if(strlen(cmdline->name) > 8)
 	cmdline->name[8] = '\0';
@@ -445,10 +453,10 @@ int main(int argc, char *argv[])
     getargs(argc, argv, cmdline);	/* Get cmdline args */
     cmdline_finalize(cmdline);	/* Set to uppercase (or not). Add inverted a for crash (only 82p) */
 
-    /* At this point, all cmdline args should be parsed correctly */ 
+    /* At this point, all cmdline args should be parsed correctly */
 
     	
-    if(cmdline->verbose) { 
+    if(cmdline->verbose) {
     	puts("Bin8x v1.3 Ti-82/83/83+ squisher");
     	puts("Copyright (C) 2001 Peter Martijn Kuipers <central@hyperfield.com>");
     	puts("Copyright (C) 2003 Tijl Coosemans <tijl@ulyssis.org>");
@@ -457,7 +465,7 @@ int main(int argc, char *argv[])
     }
 
     /* Concat extension */
-   
+  
     switch(cmdline->destcalc_id) {
 	case EXT_82P:
 		header[5] = '2';
@@ -475,7 +483,7 @@ int main(int argc, char *argv[])
 		exit(2);
 		break;
 	}
-   
+  
 	/* At this point, all the informations are correct, we can do the real job */
 	if(cmdline->verbose)
 		print_cmdline(cmdline);
@@ -489,14 +497,14 @@ int main(int argc, char *argv[])
 	int ret = unsquish(cmdline->input);
 	if(ret == 1)
 		return 1;
-    } 
-	 
+    }
+	
 
 
 	
     /* Unsquisher use a different file */	
     if (cmdline->input) {
-	if(cmdline->unsquish){ 
+	if(cmdline->unsquish){
 		if(!(infile = fopen("__temp__.bin", "r"))) {
 		    	puts("Error opening inputfile!");
 		    	printf("File: __temp__.bin\n");
@@ -564,7 +572,7 @@ int main(int argc, char *argv[])
 		varHeadLL = 0x0B;
 		break;
 
-	default: 
+	default:
 		//EXT_8XP:
 		printf("Size on calculator     : %u bytes\n", filesize + strlen(cmdline->name) + 8);
 		fileLenHH = HH(filesize + 0x13);	/* the file length = the size of the data array + 19 (0x13) */
@@ -605,12 +613,16 @@ int main(int argc, char *argv[])
     checksum += cmdline->progtype;
 
 
+    int name_length = strlen(cmdline->name);
 
-    for (i = 0; i < 8; i++) {	/* write the name of the variable */
+    for (i = 0; i < name_length; i++) {	/* write the name of the variable */
 	fputc(cmdline->name[i], outfile);
 	checksum += cmdline->name[i];
     }
-
+    for (i = name_length; i < 8; i++) {	/* write padding */
+	fputc('\0', outfile);
+	checksum += '\0';
+    }
 	
     switch(cmdline->destcalc_id) {
 	case EXT_8XP:
@@ -630,7 +642,7 @@ int main(int argc, char *argv[])
 		exit(2);
 		break;
     }
-    
+
 
     fputc(dataLenLL, outfile);
     checksum += dataLenLL;
@@ -643,7 +655,7 @@ int main(int argc, char *argv[])
     checksum += programLenHH;
 
 
-    for (i = 0; i < filesize; i++) {	/* now write the data array to the 
+    for (i = 0; i < filesize; i++) {	/* now write the data array to the
 					 * file */
 	fputc(programData[i], outfile);
 	checksum += programData[i];	/* and add it to the checksum */
@@ -655,7 +667,7 @@ int main(int argc, char *argv[])
 
 
     /*
-     * Close all Handles 
+     * Close all Handles
      */
     fclose(infile);
     fclose(outfile);
@@ -667,7 +679,7 @@ int main(int argc, char *argv[])
 
 
 /*
- * I use the following functions to ensure that the words 
+ * I use the following functions to ensure that the words
  * (16 bit) are stored in LLHH order,
  * since we don't know what type of Endian the target platform uses
  */
