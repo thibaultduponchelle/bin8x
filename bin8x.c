@@ -247,7 +247,7 @@ int getargs(int argc, char *argv[], CmdLineArgs * cmdline)
 	/* Get the non option args and use it as input/output */
 	int index;
 	 for (index = optind; index < argc; index++) {
-		if(!cmdline->output)
+		if((!cmdline->output) || (!cmdline->input)) {
 	        	autoselect_ext(cmdline, argv[index]);
 	}
 
