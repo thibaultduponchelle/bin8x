@@ -2,7 +2,7 @@
   * Copyright (C) 2001 Peter Martijn Kuipers <central@hyperfield.com>
   * Copyright (C) 2003 Tijl Coosemans <tijl@ulyssis.org>
   * Copyright (C) 2004 Guillaume Hoffmann <guillaume.h@ifrance.com>
-  * Copyright (C) 2011 thibault Duponchelle <t.duponchelle@gmail.com>
+  * Copyright (C) 2011 Thibault Duponchelle <t.duponchelle@gmail.com>
   * This program is free software; you can redistribute it and/or modify
   * it under the terms of the GNU General Public License as published by
   * the Free Software Foundation; either version 2 of the License, or
