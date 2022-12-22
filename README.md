@@ -156,3 +156,8 @@ Have fun with bin8x xD
 
 ## TODO
 - Fix potential issue reported by **Stefan Lennartsson** with null padding and `-n` option
+
+## Changes 2022
+- Fix name padding 
+- More tests
+- Fix -i when -o command line parsing issue
