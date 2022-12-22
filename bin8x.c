@@ -559,14 +559,14 @@ int main(int argc, char *argv[])
     switch(cmdline->destcalc_id) {
 	case EXT_82P:
 		// THAT IT WORKS
-		printf("Size on calculator     : %u bytes\n", filesize + strlen(cmdline->name) + 6);
+		printf("Size on calculator     : %lu bytes\n", filesize + strlen(cmdline->name) + 6);
 		fileLenHH = HH(filesize + 0x11);	/* the file length = the size of the data array + 17 (0x11) */
 		fileLenLL = LL(filesize + 0x11);
 		varHeadLL = 0x0B;
 		break;
 
 	case EXT_83P:
-		printf("Size on calculator     : %u bytes\n", filesize + strlen(cmdline->name) + 6);
+		printf("Size on calculator     : %lu bytes\n", filesize + strlen(cmdline->name) + 6);
 		fileLenHH = HH(filesize + 0x11);	/* the file length = the size of the data array + 17 (0x11) */
 		fileLenLL = LL(filesize + 0x11);
 		varHeadLL = 0x0B;
@@ -574,7 +574,7 @@ int main(int argc, char *argv[])
 
 	default:
 		//EXT_8XP:
-		printf("Size on calculator     : %u bytes\n", filesize + strlen(cmdline->name) + 8);
+		printf("Size on calculator     : %lu bytes\n", filesize + strlen(cmdline->name) + 8);
 		fileLenHH = HH(filesize + 0x13);	/* the file length = the size of the data array + 19 (0x13) */
 		fileLenLL = LL(filesize + 0x13);
 		varHeadLL = 0x0D;
