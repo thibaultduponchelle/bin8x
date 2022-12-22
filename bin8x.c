@@ -365,10 +365,6 @@ void cmdline_finalize(CmdLineArgs * cmdline)
 	    memset(cmdline->name, '\0', 8);
 	    for(i = 0; i<8; i++) {
 		cmdline->name[i] = cmdline->output[i];
-		/*if(cmdline->output[i] == '\0') {
-		    printf("break\n");
-		    break;
-		}*/
 	    }
     }
    
