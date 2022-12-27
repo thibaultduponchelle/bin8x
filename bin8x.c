@@ -249,6 +249,7 @@ int getargs(int argc, char *argv[], CmdLineArgs * cmdline)
 	 for (index = optind; index < argc; index++) {
 		if((!cmdline->output) || (!cmdline->input)) {
 	        	autoselect_ext(cmdline, argv[index]);
+		}
 	}
 
 
