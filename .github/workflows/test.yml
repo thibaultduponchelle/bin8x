@@ -1,0 +1,12 @@
+on: [push]
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    name: Build and test bin8x
+    steps:
+    - uses: actions/checkout@v2
+      with: 
+        submodules: true
+    - name: Test
+      run: make test
