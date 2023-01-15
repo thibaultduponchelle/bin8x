@@ -5,6 +5,7 @@ setup() {
     cd $ROOT
     make
     cd $DIR
+    gcc -o bin2var bin2var.c
 }
 
 
@@ -68,7 +69,8 @@ setup() {
 }
 
 @test "Test should fail" {
-    #../bin8x -v TEST.83p __temp__.bin -q -u
+    run ../bin8x -v TEST.83p __temp__.bin -q -u
+    [ "$status" -eq 2 ]
 }
 
 @test "Test -n" {
@@ -87,9 +89,20 @@ setup() {
 
 @test "Compare with bin2var" {
     # Compare with another converter
-    # echo "COMPARE WITH BIN2VAR"
-    # ./bin2var test.bin PAD.83p
-    # mv PAD.83p B2V.83p
-    # ./bin8x -o PAD.83p -i test.bin
+    ./bin2var test.bin PAD.83p
+    mv PAD.83p B2V.83p
+    ../bin8x -o PAD.83p -i test.bin
+
+    # We don't want to compare comments
+    head -c 11 PAD.83p > HBIN8X
+    head -c 11 B2V.83p > HB2V
+    tail -c +54 PAD.83p > TBIN8X
+    tail -c +54 B2V.83p > TB2V
+    
+    # Compare magic numbers
+    diff HBIN8X HB2V
+
+    # Compare everything else (except comments)
+    diff TBIN8X TB2V
 }
 
