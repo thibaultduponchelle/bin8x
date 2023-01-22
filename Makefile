@@ -1,5 +1,5 @@
 
-.PHONE: all clean
+.PHONE: all clean test
 
 all: bin8x
 
