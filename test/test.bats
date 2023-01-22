@@ -81,12 +81,6 @@ setup() {
     diff TESTTOOLONG.83p B.83p
 }
 
-@test "Check \0 padding (v2.1)" {
-    ../bin8x -o PAD.83p -i test.bin
-    ../bin8x -o PADN.83p -i test.bin -n PAD
-    diff PADN.83p PAD.83p
-}
-
 @test "Compare with bin2var" {
     # Compare with another converter
     ./bin2var test.bin PAD.83p
@@ -106,3 +100,8 @@ setup() {
     diff TBIN8X TB2V
 }
 
+@test "Check \0 padding (v2.1)" {
+    ../bin8x -o PAD.83p -i test.bin
+    ../bin8x -o PADN.83p -i test.bin -n PAD
+    diff PADN.83p PAD.83p
+}
