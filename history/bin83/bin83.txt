@@ -1,0 +1,43 @@
+bin83 v1.0 TI-83 squisher for Linux by Peter Martijn Kuipers (central@hyperfield.com)
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as Published by the Free Software
+Foundation; either Version 2 of the license, or (at your opinion) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A\PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program; if not, write to the Free Software Foundation, Inc., Mass. Ave,
+Cambridge MA 02139 USA.
+ 
+-------------------So far the legalities-------------------
+
+V1.0 for Linux:
+I made this program when a complaint on the assembly83 mailing list
+was made about few developement tools for Linux, so I started, and this is what
+came out.
+Due to my inexperience with Linux-programming, some parts arent optimal.
+In special: you MUST specify your programs name as the third command-
+line parameter, Bin83 won't ask you for it, like bin8x for DOS does.
+
+I hope all you people of the TI-83 Linux Community have uses for this program.
+
+The syntax is:
+bin83 binfile 83pfile name
+binfile :       a binary file as returned by "tasm -80 -b -i [filename]" 
+83pfile :       the output 83p file
+[name]  :       the internal TI-83 name of the program
+                bin83 will complain if you don't specify one
+
+
+This program is distributed under the Gnu Public License.
+This summarized means:
+
+-You may use the source code of my program for anything.
+-You may try and make money of this program
+-You must make the source available for anyone who gets the program from you
+-If you use my source code, or alter it, you must distribute that program
+ under the GPL too
+-You can't blame me for any damage you think is coming from this program

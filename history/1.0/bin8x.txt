@@ -1,0 +1,44 @@
+bin8x v1.0 by Peter Martijn Kuipers (central@hyperfield.com)
+
+When trying to build a very large TI-83 Plus program, I came to the
+problem of squishing, which can be done perfectly using AsmComp
+on the TI-83 Plus itself, thus reducing the size of the file to 50%,
+but only when the program is smaller than 2/3 of the TI-83 Plus' memory.
+
+So I tried devpac8x to squish the program, but it just wouldn't execute.
+It had to be another format. So I compared the AsmComp( output with the
+binfile outputted by "Tasm -80 -i -b [filename]", and I discovered the
+format. It is discribed in the accompanying file "format.txt".
+
+I then adapted my obj8x program, which I finished yesterday, and bin8x was
+born, err, mutated.
+
+So, when you need to squish your program, and want it to be TIOS executable,
+just use bin8x...
+
+
+Squishing by the way also greatly reduces loading time.
+i.e. My program took unsquished 3 seconds to load, squished it was
+immeadeately loaded.
+
+
+I hope all you people have uses for this program.
+
+The syntax is:
+bin8x binfile 8xpfile [name]
+binfile :       a binary file as returned by "tasm -80 -b -i [filename]" 
+8xpfile :       the output 8xp file
+[name]  :       the internal TI-83 Plus name of the program
+                bin8x will ask for a name if you don't specify one
+
+This program is distributed under the Gnu Public License.
+License is available at www.gnu.org.
+
+This summarized means:
+
+-You may use the source code of my program for anything.
+-You may try and make money of this program
+-You must make the source available for anyone who gets the program from you
+-If you use my source code, or alter it, you must distribute that program
+ under the GPL too
+-You can't blame me for any damage you think is coming from this program

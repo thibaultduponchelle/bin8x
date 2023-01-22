@@ -1,0 +1,16 @@
+This file discribes the TI-83 Plus On-Calc squished format, as
+squished by AsmComp( :
+
+The file is basically the bin-file returned by "tasm -80 -i -b [filename]",
+only with one addition, the first two bytes are 0xBB and 0x6D.
+These last two bytes tell the TI-83 Plus, and the Graphlink program,
+that the file is a "compiled" Program, as TI calls it (bad name people, you
+should have named it squished program).
+I suspect that these bytes are placeholders to replace the
+"AsmPrgm [newline]" header of unsquished files.
+
+Then you put it in an 8xp file, and you're done.
+
+
+
+
