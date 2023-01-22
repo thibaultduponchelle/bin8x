@@ -1,6 +1,6 @@
 [![.github/workflows/test.yml](https://github.com/thibaultduponchelle/bin8x_improved/actions/workflows/test.yml/badge.svg)](https://github.com/thibaultduponchelle/bin8x_improved/actions/workflows/test.yml)
 
-# Bin8x IMPROVED v2.0 for Linux,*BSD,...
+# Bin8x improved v2.1 for Linux,*BSD,...
 This is the source of what you can find on [ticalc bin8x_improved](https://www.ticalc.org/archives/files/fileinfo/445/44595.html)
 
 ## What is bin8x 
