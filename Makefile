@@ -1,5 +1,9 @@
 
-all: bin8x.c
+.PHONE: all clean
+
+all: bin8x
+
+bin8x: bin8x.c
 	gcc -o bin8x bin8x.c
 
 
