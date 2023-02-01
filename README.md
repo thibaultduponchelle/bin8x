@@ -14,7 +14,7 @@ This is the github repository of [bin8x_improved](https://www.ticalc.org/archive
 Copyright (C) 2001 Peter Martijn Kuipers <central@hyperfield.com>
 Copyright (C) 2003 Tijl Coosemans <tijl@ulyssis.org>
 Copyright (C) 2004 Guillaume Hoffmann <guillaume.h@ifrance.com>
-Copyright (C) 2011 Thibault Duponchelle <t.duponchelle@gmail.com> (the improved version)
+Copyright (C) 2011-2023 Thibault Duponchelle <t.duponchelle@gmail.com> (the improved version)
 ```
 
 ## Licence
@@ -164,6 +164,7 @@ Have fun with bin8x xD
 - More tests
 - Fix -i when -o command line parsing issue
 
+## Changes 2023
 ### 2.2
 - Unsquish without temp file
 - Fix fgetc approach (adding extra byte in progamData not used later)

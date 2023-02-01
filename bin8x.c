@@ -2,7 +2,7 @@
   * Copyright (C) 2001 Peter Martijn Kuipers <central@hyperfield.com>
   * Copyright (C) 2003 Tijl Coosemans <tijl@ulyssis.org>
   * Copyright (C) 2004 Guillaume Hoffmann <guillaume.h@ifrance.com>
-  * Copyright (C) 2011-2022 Thibault Duponchelle <t.duponchelle@gmail.com>
+  * Copyright (C) 2011-2023 Thibault Duponchelle <t.duponchelle@gmail.com>
   * This program is free software; you can redistribute it and/or modify
   * it under the terms of the GNU General Public License as published by
   * the Free Software Foundation; either version 2 of the License, or
@@ -670,7 +670,7 @@ void help(char *name, int ret)
         "\t\tCopyright (C) 2001 Peter Martijn Kuipers <central@hyperfield.com>\n"
         "\t\tCopyright (C) 2003 Tijl Coosemans <tijl@ulyssis.org>\n"
         "\t\tCopyright (C) 2004 Guillaume Hoffmann <guillaume.h@ifrance.com>\n"
-        "\t\tCopyright (C) 2011-2022 Thibault Duponchelle <t.duponchelle@gmail.com>\n\n"
+        "\t\tCopyright (C) 2011-2023 Thibault Duponchelle <t.duponchelle@gmail.com>\n\n"
         "\t\t\033[01mSyntax:\n"
         "\t\t\033[01m%s\033[0m binfile [options]\n"
         "\t\t\033[01m%s\033[0m -i infile -o outfile -n name [options]\n\n"
