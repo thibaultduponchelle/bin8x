@@ -6,8 +6,8 @@ setup() {
     make
     cd $DIR
     gcc -o bin2var bin2var.c
+    gcc -o bin2bin83 bin2bin83.c
 }
-
 
 @test "Very basic" {
     ../bin8x -i test.bin -o TEST.83p
@@ -18,7 +18,6 @@ setup() {
     ../bin8x -u TEST.83p test.bin -h | grep "Coosemans"
     ../bin8x -help | grep "Hoffmann"
 }
-
 
 @test "Tests basic" {
     ../bin8x test.bin
@@ -68,11 +67,6 @@ setup() {
     ../bin8x TEST.83p test.bin -q -u
 }
 
-@test "Test should fail" {
-    run ../bin8x -v TEST.83p __temp__.bin -q -u
-    [ "$status" -eq 2 ]
-}
-
 @test "Test -n" {
     # Compare file generated with explicit -n name
     # Versus name taken from filename
@@ -92,7 +86,29 @@ setup() {
     head -c 11 B2V.83p > HB2V
     tail -c +54 PAD.83p > TBIN8X
     tail -c +54 B2V.83p > TB2V
-    
+
+    # Compare magic numbers
+    diff HBIN8X HB2V
+
+    # Compare everything else (except comments)
+    diff TBIN8X TB2V
+}
+
+@test "Compare with bin2var + bin2bin83" {
+    # Compare with another converter
+    ./bin2bin83 test.bin UN # Will output UN83.bin
+    ./bin2var UN83.bin PAD.83p
+    mv PAD.83p UB2V.83p
+    ../bin8x -o PAD.83p -i test.bin -q
+    #false
+
+
+    # We don't want to compare comments
+    head -c 11 PAD.83p > HBIN8X
+    head -c 11 UB2V.83p > HB2V
+    tail -c +54 PAD.83p > TBIN8X
+    tail -c +54 UB2V.83p > TB2V
+
     # Compare magic numbers
     diff HBIN8X HB2V
 

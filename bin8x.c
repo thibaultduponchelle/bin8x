@@ -107,7 +107,7 @@ typedef struct CmdLineArgs {
     char           destcalc_id;    /* could be '2' or '3' or '4' */
     short int      uppercase;      /* Keep or not lowercase for calcname (uppercase is recommended!) */
     short int      executable;     /* Force executable (ti83plus) */
-    unsigned char  progtype;      
+    unsigned char  progtype;
     short int      unsquish;       /* Unquish a ti83 program (no shell only) */
     short int      verbose;        /* Be verbose */
     short int      help;           /* Be verbose */
@@ -140,7 +140,6 @@ int             getargs(int argc, char *argv[], CmdLineArgs * cmdline); /* Comma
 void            cmdline_init(CmdLineArgs * cmdline);                    /* Set all variable to null or default values */
 void            cmdline_finalize(CmdLineArgs * cmdline);                /* Some after parsing tasks */
 void            print_cmdline(CmdLineArgs *cmdline);                    /* Some debug */
-int             unsquish(char* filename);                               /* Unsquish a programm for ti83 regular no shell */
 void            autoselect_ext(CmdLineArgs* cmdline, char* filename);   /* Detect the input/output and use extension given */
 
 /* Set all variables to null or default values */
@@ -169,10 +168,10 @@ int getargs(int argc, char *argv[], CmdLineArgs * cmdline)
 
     if (argc <= 1)
     help(argv[0], -1);
-    
+
 
     while((options = getopt_long_only(argc, argv, "i:o:n:234xulq", long_options, &option_index)) != -1) {
-    
+
     switch (options) {
     case 'i':
         cmdline->input = optarg;
@@ -183,7 +182,7 @@ int getargs(int argc, char *argv[], CmdLineArgs * cmdline)
         cmdline->output = optarg;
         cmdline->flag = 1;
         break;
-    
+
     case 'n':
         cmdline->name = optarg;
         cmdline->flag = 1;
@@ -218,17 +217,17 @@ int getargs(int argc, char *argv[], CmdLineArgs * cmdline)
         cmdline->progtype = 0x05;
         cmdline->flag = 1;
         break;
-    
+
     case 'q':
         cmdline->unsquish = true;
         cmdline->flag = 1;
         break;
-    
+
     case 'v':
         cmdline->verbose = true;
         cmdline->flag = 1;
         break;
-    
+
     case 'h':
         help(argv[0], 0);
         cmdline->flag = 1;
@@ -262,11 +261,11 @@ int getargs(int argc, char *argv[], CmdLineArgs * cmdline)
         cmdline->input = (char*) malloc (strlen(argv[1]) * sizeof(char) + 1);
         strcpy(cmdline->input, argv[1]);
     }
-   
+
     if((!cmdline->input) && (!cmdline->output))
         help(argv[0], -1);
 
-    
+
 
     return 0;
 }
@@ -288,17 +287,17 @@ void autoselect_ext(CmdLineArgs* cmdline, char* filename) {
                 cmdline->destcalc_id = EXT_8XP;
             }
             cmdline->output = (char*) malloc(strlen(arg) * sizeof(char) + 4);
-            strcpy(cmdline->output, arg);    
+            strcpy(cmdline->output, arg);
             printf("%s\n", cmdline->output);
         } else {
             cmdline->input = (char*) malloc(strlen(arg) * sizeof(char) + 1);
-            memcpy(cmdline->input, arg, strlen(arg));    
+            memcpy(cmdline->input, arg, strlen(arg));
         }
     } else {
         cmdline->input = (char*) malloc(strlen(arg) * sizeof(char) +1 );
-        memcpy(cmdline->input, arg, strlen(arg));    
+        memcpy(cmdline->input, arg, strlen(arg));
     }
-            
+
 }
 
 
@@ -316,7 +315,7 @@ void print_cmdline(CmdLineArgs *cmdline) {
  * #6# Keep only the first 8 char for the name
  * #7# Use uppercase for calcname if needed
  * #8# Add an special char for crash
- */    
+ */
 void cmdline_finalize(CmdLineArgs * cmdline)
 {
 
@@ -338,10 +337,10 @@ void cmdline_finalize(CmdLineArgs * cmdline)
             char* p = (char*)strrchr(cmdline->input, '.'); /* Get a pointer on the extension (null if no extension) */
             if(p)
                 strcpy(p, ".bin");
-                
+
         }
     }
-   
+
     /* #3# Use extension to define destcalc_id then drop extension (because it could be false!) */
     char* p = (char*)strrchr(cmdline->output, '.');
     if(p) {
@@ -354,7 +353,7 @@ void cmdline_finalize(CmdLineArgs * cmdline)
     }
 
 
-    
+
     /* #4# If no extension is defined, use 83p as default */
     if(cmdline->destcalc_id == EXT_NULL)
         cmdline->destcalc_id = EXT_83P;
@@ -367,8 +366,8 @@ void cmdline_finalize(CmdLineArgs * cmdline)
             cmdline->name[i] = cmdline->output[i];
         }
     }
-   
-    /* #6# If calcname is too long, drop the end */    
+
+    /* #6# If calcname is too long, drop the end */
     if(strlen(cmdline->name) > 8)
         cmdline->name[8] = '\0';
 
@@ -390,37 +389,13 @@ void cmdline_finalize(CmdLineArgs * cmdline)
     }
 }
 
-/* This special function is used for generating TI83 regular programs (NO SHELL) */
-int unsquish(char* filename) {
-    FILE *fp, *fpr;
-    int e;
-    char end[] = {0x3F ,0xD4  ,0x3F ,0x30 ,0x30 ,0x30  ,0x30 ,0x3F ,0xD4};
-            
-    if((fpr = fopen(filename, "r+b"))) {
-        if(!(fp=fopen("__temp__.bin","w+b"))) {
-            fclose(fpr);
-            return 1;
-        }
-
-        while((e=fgetc(fpr))!=EOF)
-        {
-            //printf("%c= %02X ",c, c); //Print hexa code could bug the console ;D
-            fprintf(fp,"%02X",e);
-        }
-        fwrite(&end,9,1,fp);
-        fclose(fp);
-        fclose(fpr);
-    }
-    return 0;
-}
-
 /* The main function */
 int main(int argc, char *argv[])
 {
     struct utsname  system;
     FILE           *infile, *outfile;
     unsigned short int i, n, filesize;
-    unsigned char   buffer, optiondefs = 0;
+    char   buffer;
     unsigned char   programData[28000];
     unsigned short int checksum;
 
@@ -440,7 +415,7 @@ int main(int argc, char *argv[])
         strcat(comment, "unknown system");
     else
         strncat(comment, system.sysname, 20);
-    
+
     /* --- Header File Values --- */
     /* Parse all arguments */
     struct CmdLineArgs *cmdline = (CmdLineArgs *) malloc(sizeof(CmdLineArgs));
@@ -472,45 +447,23 @@ int main(int argc, char *argv[])
         exit(2);
         break;
     }
-  
+
     /* At this point, all the informations are correct, we can do the real job */
     if(cmdline->verbose)
         print_cmdline(cmdline);
 
-    /* Unsquish the code if user asked for it (option -q) */
-    if(cmdline->unsquish) {
-        if((strcmp(cmdline->input, "__temp__.bin") == 0) || strcmp(cmdline->output, "__temp__.bin") == 0) {
-            printf("You must use another input/output filename...\n");
-            exit(2);
-        }
 
-        int ret = unsquish(cmdline->input);
-        if(ret == 1)
-            return 1;
-    }
-    
-
-
-    
-    /* Unsquisher use a different file */    
+    /* Unsquisher use a different file */
     if (cmdline->input) {
-        if(cmdline->unsquish){
-            if(!(infile = fopen("__temp__.bin", "r"))) {
-                puts("Error opening inputfile!");
-                printf("File: __temp__.bin\n");
-                return (2);
-            }
-        } else {
-            if (!(infile = fopen(cmdline->input, "r"))) {
-                puts("Error opening inputfile!");
-                printf("File: %s\n", cmdline->input);
-                return (2);
-            }
+        if (!(infile = fopen(cmdline->input, "r+b"))) {
+            puts("Error opening inputfile!");
+            printf("File: %s\n", cmdline->input);
+            return (2);
         }
         printf("Using inputfile        : %s\n", cmdline->input);
     }
 
-            
+
     if (!(outfile = fopen(cmdline->output, "w"))) {
         puts("Error opening outputfile!");
         return (3);
@@ -537,13 +490,38 @@ int main(int argc, char *argv[])
     }
 
 
-    while (!feof(infile)) {
-        filesize++;
-        buffer = fgetc(infile);
-        programData[filesize] = buffer;    /* put this byte in the data 
-					    * array, and increase the count */
+    while((buffer = fgetc(infile)) != EOF) {
+	if(cmdline->unsquish) {
+	    unsigned char str[2+1];
+	    snprintf(str, 3, "%02X", (unsigned char)buffer);
+	    filesize++;
+            programData[filesize] = str[0];
+	    filesize++;
+            programData[filesize] = str[1];
+	} else {
+	    filesize++;
+            programData[filesize] = (unsigned char)buffer;
+        }
+
     }
-    
+
+    if(cmdline->unsquish) {
+        char end[] = {0x3F ,0xD4 ,0x3F ,0x30 ,0x30 ,0x30 ,0x30 ,0x3F ,0xD4};
+	for (int i = 0; i < 9; i++) {
+	    filesize++;
+            programData[filesize] = end[i];
+        }
+    }
+
+    /* So far filesize was indices */
+    filesize++;
+
+    if(cmdline->verbose) {
+        for (i = 0; i <= filesize; i++) {
+            printf("[%02X][%c]\n", programData[i], programData[i]);
+        }
+    }
+
     //printf("dcid : %c\n", cmdline->destcalc_id);
     switch(cmdline->destcalc_id) {
     case EXT_82P:
@@ -612,7 +590,7 @@ int main(int argc, char *argv[])
         fputc('\0', outfile);
         checksum += '\0';
     }
-    
+
     switch(cmdline->destcalc_id) {
     case EXT_8XP:
         puts("\nTI-83 Plus file made!!");

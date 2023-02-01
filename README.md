@@ -156,9 +156,15 @@ Sorry for this issue, I will continue to fix bugs if possible in the futur.
 Have fun with bin8x xD
 
 ## TODO
-- Fix potential issue reported by **Stefan Lennartsson** with null padding and `-n` option
+- When unsquishing, do not add ti83 footer if type is not 83p
 
 ## Changes 2022
-- Fix name padding 
+### 2.1
+- Fix name padding issue reported by **Stefan Lennartsson** with null padding and `-n` option
 - More tests
 - Fix -i when -o command line parsing issue
+
+### 2.2
+- Unsquish without temp file
+- Fix fgetc approach (adding extra byte in progamData not used later)
+
