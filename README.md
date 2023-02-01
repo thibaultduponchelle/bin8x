@@ -124,12 +124,11 @@ Some functionnality are very cool (unprotect, print the size of output etc...) b
 
 That's why I decided to improve `bin8x` to make it better for me (and for you).
 
-If you're Linux user, there's no reason to do not use `bin8x` !!! 
+If you're GNU/Linux user, there's no reason to do not use `bin8x`!!! 
 
-And the most important thing rigth now : there's now an *unsquisher inside* (for asm noshell ti83).
+And the most important thing rigth now: there's now an *unsquisher inside* (for asm noshell ti83).
 
 ### New
-
 #### Add a completely new command line parser using getopt
 There's a lot of new ways to use `bin8x` and lesser possibility to crash it.
 You can use `-o` alone, `-i` alone, or do not use options.
@@ -143,10 +142,8 @@ But the program will be really *bigger* (2 times bigger) and *slower*.
 #### By default, convert to uppercase the calc name
 There's no reason to keep lowercase because the program will not launch on calc but you can specify to keep lowercase (`-l` or `-lowercase`)
 
-
 #### Tests 
 I've added some script to test the tool but you don't need it. Just ignore them :)
-
 
 #### Bugfix
 I've found and fixed a little bug (8xp recognition was failing sometimes). 
