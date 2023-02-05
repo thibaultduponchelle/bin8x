@@ -5,7 +5,7 @@
 
 A "binary packer" is a tool that you would need to wrap assembly (or C) z80 code into a binary format that can be transferred to a calculator.
 
-![packer](packer.png)
+<p align="center"><img src="packer.png"></p>
 
 ## Usage
 `bin8x -i test.bin -o TEST.8xp`
