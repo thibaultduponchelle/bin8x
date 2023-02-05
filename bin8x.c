@@ -505,7 +505,7 @@ int main(int argc, char *argv[])
 
     }
 
-    if(cmdline->unsquish) {
+    if(cmdline->unsquish && cmdline->destcalc_id == EXT_83P) {
         char end[] = {0x3F ,0xD4 ,0x3F ,0x30 ,0x30 ,0x30 ,0x30 ,0x3F ,0xD4};
 	for (int i = 0; i < 9; i++) {
 	    filesize++;
