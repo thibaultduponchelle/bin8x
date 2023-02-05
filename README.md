@@ -6,11 +6,11 @@
 A "binary packer" is a tool that you would need to wrap assembly (or C) z80 code into a binary format that can be transferred to a calculator.
 
 ## Usage
-`bin8x test.bin TEST.8xp` (à la `bin2var`)
+`bin8x -i test.bin -o TEST.8xp`
 
 OR
 
- `bin8x -i test.bin -o TEST.8xp`
+`bin8x test.bin TEST.8xp` (à la `bin2var`)
 
 ## Credits
 The main author of `bin8x` was (and still is) [Peter Martijn Kuipers](https://www.ticalc.org/archives/files/authors/41/4152.html). Current maintainer is [Thibault Duponchelle](https://www.ticalc.org/archives/files/authors/111/11146.html). 
