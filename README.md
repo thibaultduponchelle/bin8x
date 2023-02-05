@@ -3,7 +3,7 @@
 # Bin8x
 `bin8x` is a "binary packer" for **ti8x** (ti82, ti83, ti83+, ti84+ etc...) serie.
 
-A "binary packer" is a tool that you would need to wrap assembly (or C) compiled z80 code into a binary format that can be transferred to a calculator.
+A "binary packer" is a tool that you would need to wrap assembly (or C) compiled z80 code into a binary that can be transferred to a calculator.
 
 
 <p align="center"><img src="packer.png"></p>
