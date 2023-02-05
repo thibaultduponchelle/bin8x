@@ -14,12 +14,12 @@ A "binary packer" is a tool that you would need to wrap assembly (or C) z80 code
 
 OR
 
-`bin8x test.bin TEST.8xp` (à la `bin2var`)
+`bin8x test.bin TEST.8xp`
 
 ## Credits
 The main author of `bin8x` was (and still is) [Peter Martijn Kuipers](https://www.ticalc.org/archives/files/authors/41/4152.html). Current maintainer is [Thibault Duponchelle](https://www.ticalc.org/archives/files/authors/111/11146.html). 
 
-Several other people helped to improve (or even release 1.x versions) `bin8x`:
+Several other people helped to improve (or even release 1.x versions):
 - [Tijl Coosemans](https://www.ticalc.org/archives/files/authors/46/4619.html)
 - [Guillaume Hoffmann](https://www.ticalc.org/archives/files/authors/74/7492.html)
 - [Julien Solignac](https://www.ticalc.org/archives/files/authors/25/2551.html)
