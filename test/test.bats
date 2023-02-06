@@ -14,7 +14,7 @@ setup() {
 }
 
 @test "This test displays help" {
-    ../bin8x -h | grep "Kuipers"
+    ../bin8x -h | grep "uppercase"
     ../bin8x -u TEST.83p test.bin -h | grep "CrASH(19006)"
     ../bin8x -help | grep "unsquish"
 }
