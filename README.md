@@ -1,7 +1,7 @@
 [![.github/workflows/test.yml](https://github.com/thibaultduponchelle/bin8x_improved/actions/workflows/test.yml/badge.svg)](https://github.com/thibaultduponchelle/bin8x_improved/actions/workflows/test.yml)
 <hr/>
 
-<p align="center"><img src="nim8x.png"></p>
+<p align="center"><img src="bin8x.png"></p>
 
 <hr/>
 
