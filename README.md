@@ -31,9 +31,6 @@ Several other people helped to improve (or even release 1.x versions):
 See [history](https://github.com/thibaultduponchelle/bin8x/blob/master/history/README.md) or [ARCHIVE.md](https://github.com/thibaultduponchelle/bin8x_improved/blob/master/ARCHIVE.md) for more informations.
 
 ## Notes
-I initially used the name [bin8x_improved](https://www.ticalc.org/archives/files/fileinfo/445/44595.html) on [ticalc.org](https://www.ticalc.org/) to differenciate (keeping attributions to same group of people than previous versions, since it's something we can do in ticalc :+1:). 
+I initially used the name [bin8x_improved](https://www.ticalc.org/archives/files/fileinfo/445/44595.html) on [ticalc.org](https://www.ticalc.org/) to differenciate (keeping attributions to same group of people, since it's something we can do in ticalc :+1:). 
 
 In 2023, I renamed this repository and I now start using `bin8x` name.
-
-
-
