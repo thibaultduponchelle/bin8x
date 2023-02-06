@@ -4,7 +4,7 @@
 all: bin8x
 
 bin8x: bin8x.c
-	gcc -o bin8x bin8x.c
+	gcc -o bin8x bin8x.c -Wall -pedantic -std=c99
 
 
 test: all
