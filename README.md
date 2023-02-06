@@ -1,9 +1,6 @@
 [![.github/workflows/test.yml](https://github.com/thibaultduponchelle/bin8x_improved/actions/workflows/test.yml/badge.svg)](https://github.com/thibaultduponchelle/bin8x_improved/actions/workflows/test.yml)
-<hr/>
 
 <p align="center"><img src="bin8x.png"></p>
-
-<hr/>
 
 # Bin8x
 `bin8x` is a "binary packer" for **ti8x** (ti82, ti83, ti83+, ti84+ etc...) serie.
