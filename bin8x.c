@@ -385,7 +385,7 @@ void cmdline_finalize(CmdLineArgs * cmdline)
         for (i = 7; i; i--) {
             cmdline->name[i] = cmdline->name[i - 1];
         }
-        cmdline->name[0] = 220;
+        cmdline->name[0] = (char)220;
     }
 }
 
@@ -394,7 +394,7 @@ int main(int argc, char *argv[])
 {
     struct utsname  system;
     FILE           *infile, *outfile;
-    unsigned short int i, n, filesize;
+    unsigned short int i, filesize;
     char   buffer;
     unsigned char   programData[28000];
     unsigned short int checksum;
@@ -412,9 +412,9 @@ int main(int argc, char *argv[])
     unsigned char   programLenLL = 0x00;
     unsigned char   programLenHH = 0x00;
     if (uname(&system) == -1)
-        strcat(comment, "unknown system");
+        strcat((char*)comment, "unknown system");
     else
-        strncat(comment, system.sysname, 20);
+        strncat((char*)comment, system.sysname, 20);
 
     /* --- Header File Values --- */
     /* Parse all arguments */
@@ -493,7 +493,7 @@ int main(int argc, char *argv[])
     while((buffer = fgetc(infile)) != EOF) {
 	if(cmdline->unsquish) {
 	    unsigned char str[2+1];
-	    snprintf(str, 3, "%02X", (unsigned char)buffer);
+	    snprintf((char*)str, 3, "%02X", (unsigned char)buffer);
 	    filesize++;
             programData[filesize] = str[0];
 	    filesize++;
@@ -506,7 +506,7 @@ int main(int argc, char *argv[])
     }
 
     if(cmdline->unsquish && cmdline->destcalc_id == EXT_83P) {
-        char end[] = {0x3F ,0xD4 ,0x3F ,0x30 ,0x30 ,0x30 ,0x30 ,0x3F ,0xD4};
+        int end[] = {0x3F ,0xD4 ,0x3F ,0x30 ,0x30 ,0x30 ,0x30 ,0x3F ,0xD4};
 	for (int i = 0; i < 9; i++) {
 	    filesize++;
             programData[filesize] = end[i];
