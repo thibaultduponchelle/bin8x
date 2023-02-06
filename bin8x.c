@@ -666,7 +666,7 @@ unsigned char HH(unsigned short int toSplit)
 /* Print help */
 void help(char *name, int ret)
 {
-    fprintf(stdout, "Bin8x v1.4 Ti-82/83/83+ squisher\n\n"
+    fprintf(stdout, "Bin8x\n\n"
         "\033[01mSyntax:\n"
         "\t\033[01m%s\033[0m binfile [options]\n"
         "\t\033[01m%s\033[0m -i infile -o outfile -n NAME [options]\n\n"
