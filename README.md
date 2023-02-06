@@ -2,7 +2,7 @@
 
 <p align="center"><img src="bin8x.png"></p>
 
-# Bin8x
+# bin8x
 `bin8x` is a "binary packer" for **ti8x** (ti82, ti83, ti83+, ti84+ etc...) serie.
 
 A "binary packer" is a tool that you would need to wrap assembly (or C) compiled z80 code into a binary that can be transferred to a calculator.
@@ -12,11 +12,13 @@ A "binary packer" is a tool that you would need to wrap assembly (or C) compiled
 
 
 ## Usage
-`bin8x -i test.bin -o TEST.8xp`
+Build with `make` then run:
+
+`./bin8x -i test.bin -o TEST.8xp`
 
 OR
 
-`bin8x test.bin TEST.8xp`
+`./bin8x test.bin TEST.8xp`
 
 ## Credits
 The main author of `bin8x` was (and still is) [Peter Martijn Kuipers](https://www.ticalc.org/archives/files/authors/41/4152.html). Current maintainer is [Thibault Duponchelle](https://www.ticalc.org/archives/files/authors/111/11146.html). 
