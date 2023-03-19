@@ -1,3 +1,18 @@
+# 19-03-2023 - Version 2.3
+- Remove print
+- Edit description
+- tar.gz
+
+# 05-02-2023 - Version 2.2
+- Unsquish without temp file
+- Fix fgetc approach (was adding extra byte in progamData not used later)
+- Do not add ti83 footer when unsquishing if the target model is not ti83
+
+# 22-12-2022 - Version 2.1 
+- Fix name padding issue reported by **Stefan Lennartsson** with null padding and `-n` option
+- More tests, use `bats`
+- Fix -i when -o command line parsing issue
+
 # 31-03-2011 - Version 2.0
 - Command line a la bin2var
 
@@ -21,12 +36,3 @@ I've added some script to test the tool but you don't need it. Just ignore them 
 I've found and fixed a little bug (8xp recognition was failing sometimes). 
 Sorry for this issue, I will continue to fix bugs if possible in the futur.
 
-# 22-12-2022 - Version 2.1 
-- Fix name padding issue reported by **Stefan Lennartsson** with null padding and `-n` option
-- More tests, use `bats`
-- Fix -i when -o command line parsing issue
-
-# 05-02-2023 - Version 2.2
-- Unsquish without temp file
-- Fix fgetc approach (was adding extra byte in progamData not used later)
-- Do not add ti83 footer when unsquishing if the target model is not ti83
