@@ -288,7 +288,6 @@ void autoselect_ext(CmdLineArgs* cmdline, char* filename) {
             }
             cmdline->output = (char*) malloc(strlen(arg) * sizeof(char) + 4);
             strcpy(cmdline->output, arg);
-            printf("%s\n", cmdline->output);
         } else {
             cmdline->input = (char*) malloc(strlen(arg) * sizeof(char) + 1);
             memcpy(cmdline->input, arg, strlen(arg));
